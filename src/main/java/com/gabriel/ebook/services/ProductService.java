@@ -6,13 +6,13 @@ import com.gabriel.ebook.repositories.ProductRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductService {
+public class ProductService implements IProductService{
     private final ProductRepository productRepository;
 
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
-
+    @Override
     public Product createProduct(ProductReceivedDTO productReceivedDTO){
         Product product = new Product();
         product.setName(productReceivedDTO.getName());
